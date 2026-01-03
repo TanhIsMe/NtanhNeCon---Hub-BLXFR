@@ -126,7 +126,7 @@ local aa = {
             Acrylic = false,
             Transparency = true,
             MinimizeKeybind = nil,
-            MinimizeKey = Enum.KeyCode.LeftControl,
+            MinimizeKey = Enum.KeyCode.End,
             GUI = w
         }
         function x.SafeCallback(y, z, ...)
@@ -5543,3 +5543,4 @@ do
         end
     end
 end
+
