@@ -4,10 +4,10 @@ local v15 = v14:CreateWindow({
     Title = "NtanhNeConn",
     SubTitle = "",
     TabWidth = 160,
-    Theme = "Light",
+    Theme = "Darker",
     Acrylic = false,
     Size = UDim2.fromOffset(500, 320),
-    MinimizeKey = Enum.KeyCode.End
+    MinimizeKey = Enum.KeyCode.LeftControl
 });
 local v16 = {
     Home = v15:AddTab({
@@ -9015,7 +9015,8 @@ spawn(function()
     end
 end);
 v14:Notify({
-    Title = "Văn Thành IOS",
-    Content = "Tải Xong",
-    Duration = 10
+    Title = "NtanhNeCon Hub",
+    Content = "Hub has been installed package!",
+    Duration = 3
 });
+
