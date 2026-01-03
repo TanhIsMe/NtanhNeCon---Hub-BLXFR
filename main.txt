@@ -1,4 +1,97 @@
+-- Services
+local Players = game:GetService("Players")
+local VirtualInputManager = game:GetService("VirtualInputManager")
+local UserInputService = game:GetService("UserInputService")
 
+local player = Players.LocalPlayer
+
+-- ScreenGui
+local gui = Instance.new("ScreenGui")
+gui.Name = "OnlyEndGUI"
+gui.ResetOnSpawn = false
+gui.IgnoreGuiInset = true
+gui.Parent = player:WaitForChild("PlayerGui")
+
+-- Button END
+local endBtn = Instance.new("TextButton")
+endBtn.Name = "EndButton"
+endBtn.Size = UDim2.new(0, 120, 0, 50)
+endBtn.Position = UDim2.new(0.5, 0, 0.85, 0)
+endBtn.AnchorPoint = Vector2.new(0.5, 0.5)
+endBtn.BackgroundColor3 = Color3.fromRGB(60, 60, 70)
+endBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+endBtn.Text = "🚀"
+endBtn.Font = Enum.Font.SourceSansBold
+endBtn.TextScaled = true
+endBtn.BorderSizePixel = 0
+endBtn.Active = true
+endBtn.Parent = gui
+
+-- Bo góc
+local corner = Instance.new("UICorner")
+corner.CornerRadius = UDim.new(0, 12)
+corner.Parent = endBtn
+
+--------------------------------------------------
+-- DRAGGABLE
+--------------------------------------------------
+local dragging = false
+local dragStart, startPos
+
+endBtn.InputBegan:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseButton1
+	or input.UserInputType == Enum.UserInputType.Touch then
+		dragging = true
+		dragStart = input.Position
+		startPos = endBtn.Position
+
+		input.Changed:Connect(function()
+			if input.UserInputState == Enum.UserInputState.End then
+				dragging = false
+			end
+		end)
+	end
+end)
+
+endBtn.InputChanged:Connect(function(input)
+	if dragging and (input.UserInputType == Enum.UserInputType.MouseMovement
+	or input.UserInputType == Enum.UserInputType.Touch) then
+		local delta = input.Position - dragStart
+		endBtn.Position = UDim2.new(
+			startPos.X.Scale,
+			startPos.X.Offset + delta.X,
+			startPos.Y.Scale,
+			startPos.Y.Offset + delta.Y
+		)
+	end
+end)
+
+--------------------------------------------------
+-- PRESS / RELEASE -> KEY END
+--------------------------------------------------
+local holding = false
+
+endBtn.MouseButton1Down:Connect(function()
+	if holding then return end
+	holding = true
+	endBtn.BackgroundColor3 = Color3.fromRGB(40, 40, 50)
+	VirtualInputManager:SendKeyEvent(true, Enum.KeyCode.End, false, game)
+end)
+
+endBtn.MouseButton1Up:Connect(function()
+	if not holding then return end
+	holding = false
+	endBtn.BackgroundColor3 = Color3.fromRGB(60, 60, 70)
+	VirtualInputManager:SendKeyEvent(false, Enum.KeyCode.End, false, game)
+end)
+
+endBtn.MouseLeave:Connect(function()
+	if holding then
+		holding = false
+		endBtn.BackgroundColor3 = Color3.fromRGB(60, 60, 70)
+		VirtualInputManager:SendKeyEvent(false, Enum.KeyCode.End, false, game)
+	end
+end)
 -- spawn(function()
 --     while wait() do
 --         function print()
@@ -9107,6 +9200,7 @@ v14:Notify({
     Content = "Hub has been installed package!",
     Duration = 3
 });
+
 
 
 
