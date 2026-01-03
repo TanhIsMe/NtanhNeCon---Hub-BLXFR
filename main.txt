@@ -15,10 +15,10 @@ gui.Parent = player:WaitForChild("PlayerGui")
 -- Button END
 local endBtn = Instance.new("TextButton")
 endBtn.Name = "EndButton"
-endBtn.Size = UDim2.new(0, 120, 0, 50)
-endBtn.Position = UDim2.new(0.5, 0, 0.85, 0)
-endBtn.AnchorPoint = Vector2.new(0.5, 0.5)
-endBtn.BackgroundColor3 = Color3.fromRGB(60, 60, 70)
+endBtn.Size = UDim2.new(0, 56, 0, 56)
+endBtn.Position = UDim2.new(0, 120, 0, 130)
+endBtn.AnchorPoint = Vector2.new(0, 0)
+endBtn.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 endBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
 endBtn.Text = "🚀"
 endBtn.Font = Enum.Font.SourceSansBold
@@ -8266,86 +8266,6 @@ v16.Shop:AddButton({
         game.ReplicatedStorage.Remotes.CommF_:InvokeServer("ThunderGodTalk");
     end
 });
-local v56 = v16.Shop:AddSection("Võ");
-v16.Shop:AddButton({
-    Title = "Black Leg",
-    Description = "",
-    Callback = function()
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyBlackLeg");
-    end
-});
-v16.Shop:AddButton({
-    Title = "Electro",
-    Description = "",
-    Callback = function()
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectro");
-    end
-});
-v16.Shop:AddButton({
-    Title = "Fishman Karate",
-    Description = "",
-    Callback = function()
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyFishmanKarate");
-    end
-});
-v16.Shop:AddButton({
-    Title = "Dragon Claw",
-    Description = "",
-    Callback = function()
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward", "DragonClaw", "1");
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward", "DragonClaw", "2");
-    end
-});
-v16.Shop:AddButton({
-    Title = "Superhuman",
-    Description = "",
-    Callback = function()
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySuperhuman");
-    end
-});
-v16.Shop:AddButton({
-    Title = "Death Step",
-    Description = "",
-    Callback = function()
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDeathStep");
-    end
-});
-v16.Shop:AddButton({
-    Title = "Sharkman Karate",
-    Description = "",
-    Callback = function()
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate", true);
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate");
-    end
-});
-v16.Shop:AddButton({
-    Title = "Electric Claw",
-    Description = "",
-    Callback = function()
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectricClaw");
-    end
-});
-v16.Shop:AddButton({
-    Title = "Dragon Talon",
-    Description = "",
-    Callback = function()
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon");
-    end
-});
-v16.Shop:AddButton({
-    Title = "Godhuman",
-    Description = "",
-    Callback = function()
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyGodhuman");
-    end
-});
-v16.Shop:AddButton({
-    Title = "Sanguine Art",
-    Description = "",
-    Callback = function()
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySanguineArt");
-    end
-});
 local v56 = v16.Shop:AddSection("Khác");
 v16.Shop:AddButton({
     Title = "Đổi Chỉ Số",
@@ -9200,6 +9120,7 @@ v14:Notify({
     Content = "Hub has been installed package!",
     Duration = 3
 });
+
 
 
 
